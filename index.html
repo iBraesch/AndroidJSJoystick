@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <h1>Orientation : <span id="supportOrientation"></span></h1>
+  <ul>
+    <li>orientation.alpha : <span id="valOrientationAlpha"></span></li>
+    <li>orientation.beta : <span id="valOrientationBeta"></span></li>
+    <li>orientation.gamma : <span id="valOrientationGamma"></span></li>
+  </ul>
+  <h1>Motion : <span id="supportMotion"></span></h1>
+  <ul>
+    <li>accelerationIncludingGravity
+      <ul>
+        <li>accelerationIncludingGravity.x : <span id="valAccelWGX"></span></li>
+        <li>accelerationIncludingGravity.y : <span id="valAccelWGY"></span></li>
+        <li>accelerationIncludingGravity.z : <span id="valAccelWGZ"></span></li>
+      </ul>
+    </li>
+    <li>acceleration
+      <ul>
+        <li>acceleration.x : <span id="valAccelX"></span></li>
+        <li>acceleration.y : <span id="valAccelY"></span></li>
+        <li>acceleration.z : <span id="valAccelZ"></span></li>
+      </ul>
+    </li>
+    <li>rotationRate
+      <ul>
+        <li>rotationRate.alpha : <span id="valRotationAlpha"></span></li>
+        <li>rotationRate.beta : <span id="valRotationBeta"></span></li>
+        <li>rotationRate.gamma : <span id="valRotationGamma"></span></li>
+      </ul>
+    </li>
+    <li>interval
+      <ul>
+        <li>interval : <span id="valInterval"></span></li>
+      </ul>
+    </li>
+  </ul>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script id="jsbin-javascript">
+if (window.DeviceOrientationEvent) {
+  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+  $("#supportOrientation").text("Supported");
+} else {
+  $("#supportOrientation").text("Not supported");
+}
+
+if (window.DeviceMotionEvent) {
+  window.addEventListener('devicemotion', deviceMotionHandler);
+  $("#supportMotion").text("Supported");
+} else {
+  $("#supportMotion").text("Not supported");
+}
+
+function deviceOrientationHandler(event) {
+  $("#valOrientationAlpha").text(event.alpha);
+  $("#valOrientationBeta").text(event.beta);
+  $("#valOrientationGamma").text(event.gamma);
+}
+
+function deviceMotionHandler(event) {
+  $("#valAccelWGX").text(event.accelerationIncludingGravity.x);
+  $("#valAccelWGY").text(event.accelerationIncludingGravity.y);
+  $("#valAccelWGZ").text(event.accelerationIncludingGravity.z);
+  $("#valAccelX").text(event.acceleration.x);
+  $("#valAccelY").text(event.acceleration.y);
+  $("#valAccelZ").text(event.acceleration.z);
+  $("#valRotationAlpha").text(event.rotationRate.alpha);
+  $("#valRotationBeta").text(event.rotationRate.beta);
+  $("#valRotationGamma").text(event.rotationRate.gamma);
+  $("#valInterval").text(event.interval);
+}
+</script>
+
+
+
+<script id="jsbin-source-javascript" type="text/javascript">if (window.DeviceOrientationEvent) {
+  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+  $("#supportOrientation").text("Supported");
+} else {
+  $("#supportOrientation").text("Not supported");
+}
+
+if (window.DeviceMotionEvent) {
+  window.addEventListener('devicemotion', deviceMotionHandler);
+  $("#supportMotion").text("Supported");
+} else {
+  $("#supportMotion").text("Not supported");
+}
+
+function deviceOrientationHandler(event) {
+  $("#valOrientationAlpha").text(event.alpha);
+  $("#valOrientationBeta").text(event.beta);
+  $("#valOrientationGamma").text(event.gamma);
+}
+
+function deviceMotionHandler(event) {
+  $("#valAccelWGX").text(event.accelerationIncludingGravity.x);
+  $("#valAccelWGY").text(event.accelerationIncludingGravity.y);
+  $("#valAccelWGZ").text(event.accelerationIncludingGravity.z);
+  $("#valAccelX").text(event.acceleration.x);
+  $("#valAccelY").text(event.acceleration.y);
+  $("#valAccelZ").text(event.acceleration.z);
+  $("#valRotationAlpha").text(event.rotationRate.alpha);
+  $("#valRotationBeta").text(event.rotationRate.beta);
+  $("#valRotationGamma").text(event.rotationRate.gamma);
+  $("#valInterval").text(event.interval);
+}</script></body>
+</html>
